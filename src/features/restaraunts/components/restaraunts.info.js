@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { SvgXml } from 'react-native-svg';
 import star from '../../../../assets/star';
 import open from '../../../../assets/open';
+import { Spacer } from '../../../components/spacer.components';
 
 
 const RestCard = styled(Card)`
@@ -76,9 +77,9 @@ export const RestarauntInfo = ({ restaraunt = {} }) => {
                                 Closed Temporarily
                             </Text>
                         )}
-                        <View style={{ paddingLeft: 16 }}></View>
+                        <Spacer variant='LeftLarge' />
                         {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
-                        <View style={{ paddingLeft: 16 }}></View>
+                        <Spacer variant='LeftLarge' />
                         <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
                     </StatusIcons>
 
