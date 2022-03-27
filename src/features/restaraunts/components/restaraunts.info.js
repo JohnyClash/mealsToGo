@@ -77,10 +77,12 @@ export const RestarauntInfo = ({ restaraunt = {} }) => {
                                 Closed Temporarily
                             </Text>
                         )}
-                        <Spacer variant='LeftLarge' />
-                        {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
-                        <Spacer variant='LeftLarge' />
-                        <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
+                        <Spacer variant='LeftSmall' >
+                            {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
+                        </Spacer>
+                        <Spacer variant='LeftSmall' >
+                            <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
+                        </Spacer>
                     </StatusIcons>
 
 
