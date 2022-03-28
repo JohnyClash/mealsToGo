@@ -1,5 +1,5 @@
 import react from "react";
-import { Searchbar } from "react-native-paper";
+import { Searchbar, FlatList } from "react-native-paper";
 import styled from 'styled-components';
 import { RestarauntInfo } from "../components/restaraunts.info";
 import {

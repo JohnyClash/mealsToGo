@@ -1,48 +1,23 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Image } from "react-native";
 import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
 import styled from 'styled-components';
 import { SvgXml } from 'react-native-svg';
 import star from '../../../../assets/star';
 import open from '../../../../assets/open';
 import { Spacer } from '../../../components/spacer.components';
+import { Text } from '../../../components/text.components'
+import {
+    RestCard,
+    Address,
+    RestName,
+    CardImage,
+    RatingPlus,
+    StatusIcons,
+    Rating,
+    Icon
+} from './restaurants.info.style'
 
-
-const RestCard = styled(Card)`
-    font-family: ${(props) => props.theme.fonts.body}
-    backgroundColor:${props => props.theme.colors.ui.white}
-    marginLeft:${props => props.theme.space.md}
-    marginRight: ${props => props.theme.space.md}
-    elevation: 5
-`;
-const Address = styled(Paragraph)`
-    font-family: ${(props) => props.theme.fonts.body}
-    font-size: ${(props) => props.theme.fontSizes.caption}
-`;
-const RestName = styled(Title)`
-    font-family: ${(props) => props.theme.fonts.heading}
-    font-size: ${(props) => props.theme.fontSizes.title}
-`;
-const CardImage = styled(Card.Cover)`
-    padding: ${props => props.theme.space.md}
-    backgroundColor: ${(props) => props.theme.colors.ui.white}
-    `;
-const RatingPlus = styled.View`
-    display:flex
-    flex-direction:row
-    justify-content: space-between
-`;
-const StatusIcons = styled.View`
-    background-color:white
-    flex-direction:row
-
-`;
-const Rating = styled.View`
-    display:flex
-    background-color:white
-    flex-direction:row
-
-`
 
 export const RestarauntInfo = ({ restaraunt = {} }) => {
     const {
@@ -73,19 +48,17 @@ export const RestarauntInfo = ({ restaraunt = {} }) => {
                     </Rating>
                     <StatusIcons>
                         {isClosedTemporarily && (
-                            <Text varient='label' style={{ color: 'red' }}>
+                            <Text variant='error'>
                                 Closed Temporarily
                             </Text>
                         )}
-                        <Spacer variant='LeftSmall' >
+                        <Spacer size='8px' position='left' >
                             {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
                         </Spacer>
-                        <Spacer variant='LeftSmall' >
-                            <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
+                        <Spacer position='left' size='8px' >
+                            <Icon source={{ uri: icon }} />
                         </Spacer>
                     </StatusIcons>
-
-
                 </RatingPlus>
                 <Address>{address}</Address>
             </Card.Content>
