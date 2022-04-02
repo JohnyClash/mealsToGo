@@ -7,6 +7,7 @@ export const RestCard = styled(Card)`
     marginLeft:${props => props.theme.space.md}
     marginRight: ${props => props.theme.space.md}
     elevation: 5
+    margin: ${(props) => props.theme.space.lg}
 `;
 export const Address = styled(Paragraph)`
     font-family: ${(props) => props.theme.fonts.body}

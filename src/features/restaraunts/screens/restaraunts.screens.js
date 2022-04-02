@@ -1,7 +1,7 @@
 import react from "react";
-import { Searchbar, FlatList } from "react-native-paper";
+import { Searchbar } from "react-native-paper";
 import styled from 'styled-components';
-import { RestarauntInfo } from "../components/restaraunts.info";
+import { RestarauntInfo } from "../components/restaraunts.info.card";
 import {
     StyleSheet,
     Text,
@@ -9,7 +9,11 @@ import {
     SafeAreaView,
     Platform,
     StatusBar,
+    FlatList
 } from "react-native";
+
+
+
 
 const MainContain = styled(SafeAreaView)`
     flex:1;
@@ -21,23 +25,23 @@ const SearchContainer = styled.View`
     width: auto
     justifyContent: center
 `;
-const RestCardContainer = styled.View`
-    flexGrow: 1
-    paddingTop: ${props => props.theme.space.md} 
-    backgroundColor: ${props => props.theme.colors.brand.muted}
-`;
+
+
 
 export const RestarauntScreen = () => {
     return (
-        <MainContain>
+        <>
             <SearchContainer>
                 <Searchbar />
             </SearchContainer>
 
-            <RestCardContainer>
-                <RestarauntInfo />
-            </RestCardContainer>
-        </MainContain>
+            <FlatList
+                data={[{ names: 1 }, { names: 2 }, { names: 3 }]}
+                renderItem={() => <RestarauntInfo />}
+                keyExtractor={(item) => item.names}
+            // contentContainerStyle={{ padding: 16 }}
+            />
+        </>
     );
 };
 
