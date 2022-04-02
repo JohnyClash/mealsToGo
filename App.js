@@ -7,17 +7,10 @@ import { useFonts as useOswald, Oswald_400Regular } from '@expo-google-fonts/osw
 import { useFonts as useLato, Lato_400Regular } from '@expo-google-fonts/lato';
 import { getFocusedRouteNameFromRoute, NavigationContainer, TabActions } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
+import { SafeArea } from './src/components/safe-area.components'
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
 import { restaurantsRequest } from './src/services/restaurants.services';
-import styled from 'styled-components';
-import { SafeAreaView, Platform, StatusBar } from 'react';
 
-
-const SafeArea = styled.SafeAreaView`
-flex:1;
-
-`;
 
 export default function App() {
   const [oswaldLoaded] = useOswald({
