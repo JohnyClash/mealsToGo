@@ -9,7 +9,7 @@ import { getFocusedRouteNameFromRoute, NavigationContainer, TabActions } from '@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SafeArea } from './src/components/safe-area.components'
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
-import { restaurantsRequest } from './src/services/restaurants.services';
+import { restaurantsRequest } from './src/services/restaurants.service';
 
 
 export default function App() {
