@@ -1,4 +1,4 @@
-import react from "react";
+import React, { useContext } from "react";
 import { Searchbar } from "react-native-paper";
 import styled from 'styled-components';
 import { RestarauntInfo } from "../components/restaraunts.info.card";
@@ -12,7 +12,8 @@ import {
     FlatList
 } from "react-native";
 
-
+import { RestaurantsContext } from '../../../services/restaurants.context';
+// console.log('oooooooooooooooooooooooooooooooooooo', RestaurantsContext)
 
 
 const MainContain = styled(SafeAreaView)`
@@ -29,6 +30,8 @@ const SearchContainer = styled.View`
 
 
 export const RestarauntScreen = () => {
+    const restaurantsContext = useContext(RestaurantsContext);
+    console.log('IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII', restaurantsContext);
     return (
         <>
             <SearchContainer>
@@ -36,7 +39,7 @@ export const RestarauntScreen = () => {
             </SearchContainer>
 
             <FlatList
-                data={[{ names: 1 }, { names: 2 }, { names: 3 }]}
+                data={restaurantsContext.restaurants}
                 renderItem={() => <RestarauntInfo />}
                 keyExtractor={(item) => item.names}
             // contentContainerStyle={{ padding: 16 }}

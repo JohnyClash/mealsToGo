@@ -10,7 +10,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SafeArea } from './src/components/safe-area.components'
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
 import { restaurantsRequest } from './src/services/restaurants.service';
-
+import { RestaurantsContextProvider } from "./src/services/restaurants.context";
 
 export default function App() {
   const [oswaldLoaded] = useOswald({
@@ -31,35 +31,37 @@ export default function App() {
   const Tab = createBottomTabNavigator();
 
   return (
-    <ThemeProvider theme={theme}>
-      <SafeArea>
-        <NavigationContainer>
-          <Tab.Navigator
-            screenOptions={({ route }) => ({
-              tabBarIcon: ({ color, size }) => {
-                let iconName;
+    <RestaurantsContextProvider>
+      <ThemeProvider theme={theme}>
+        <SafeArea>
+          <NavigationContainer>
+            <Tab.Navigator
+              screenOptions={({ route }) => ({
+                tabBarIcon: ({ color, size }) => {
+                  let iconName;
 
-                if (route.name === 'Restaurants') {
-                  iconName = 'restaurant'
-                } else if (route.name === 'Settings') {
-                  iconName = 'settings'
-                } else if (route.name === 'Maps') {
-                  iconName = 'map-sharp'
-                }
+                  if (route.name === 'Restaurants') {
+                    iconName = 'restaurant'
+                  } else if (route.name === 'Settings') {
+                    iconName = 'settings'
+                  } else if (route.name === 'Maps') {
+                    iconName = 'map-sharp'
+                  }
 
-                // You can return any component that you like here!
-                return <Ionicons name={iconName} size={size} color={color} />;
-              },
-              tabBarActiveTintColor: 'tomato',
-              tabBarInactiveTintColor: 'gray',
-            })}
-          >
-            <Tab.Screen name='Restaurants' component={RestarauntScreen} />
-            <Tab.Screen name='Maps' component={Map} />
-            <Tab.Screen name='Settings' component={Map} />
-          </Tab.Navigator>
-        </NavigationContainer>
-      </SafeArea>
-    </ThemeProvider>
+                  // You can return any component that you like here!
+                  return <Ionicons name={iconName} size={size} color={color} />;
+                },
+                tabBarActiveTintColor: 'tomato',
+                tabBarInactiveTintColor: 'gray',
+              })}
+            >
+              <Tab.Screen name='Restaurants' component={RestarauntScreen} />
+              <Tab.Screen name='Maps' component={Map} />
+              <Tab.Screen name='Settings' component={Map} />
+            </Tab.Navigator>
+          </NavigationContainer>
+        </SafeArea>
+      </ThemeProvider>
+    </RestaurantsContextProvider>
   )
 }
