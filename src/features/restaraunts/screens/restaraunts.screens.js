@@ -13,7 +13,6 @@ import {
 } from "react-native";
 
 import { RestaurantsContext } from '../../../services/restaurants.context';
-//console.log('oooooooooooooooooooooooooooooooooooo', RestaurantsContext)
 
 
 const MainContain = styled(SafeAreaView)`
@@ -30,8 +29,7 @@ const SearchContainer = styled.View`
 
 
 export const RestarauntScreen = () => {
-    const restaurantsContext = useContext(RestaurantsContext);
-    console.log('IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII', restaurantsContext);
+    const { restaurants, isLoading, error } = useContext(RestaurantsContext);
     return (
         <>
             <SearchContainer>
@@ -39,8 +37,12 @@ export const RestarauntScreen = () => {
             </SearchContainer>
 
             <FlatList
-                data={restaurantsContext.restaurants}
-                renderItem={() => <RestarauntInfo />}
+                data={restaurants}
+                renderItem={({ item }) => {
+                    return (
+                        < RestarauntInfo restaurant={item} />
+                    )
+                }}
                 keyExtractor={(item) => item.names}
             // contentContainerStyle={{ padding: 16 }}
             />

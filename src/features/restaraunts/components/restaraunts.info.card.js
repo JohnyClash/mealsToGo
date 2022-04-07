@@ -19,7 +19,8 @@ import {
 } from './restaurants.info.style'
 
 
-export const RestarauntInfo = ({ restaraunt = {} }) => {
+export const RestarauntInfo = ({ restaurant = {} }) => {
+
     const {
         name = "Johny Tacos",
         icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
@@ -30,7 +31,7 @@ export const RestarauntInfo = ({ restaraunt = {} }) => {
         isOpenNow = true,
         rating = 3.2,
         isClosedTemporarily = true,
-    } = restaraunt;
+    } = restaurant;
 
     const ratingArray = Array.from(new Array(Math.ceil(rating)));
     console.log(ratingArray);
