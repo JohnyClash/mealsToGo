@@ -13,7 +13,7 @@ import {
 } from "react-native";
 
 import { RestaurantsContext } from '../../../services/restaurants.context';
-// console.log('oooooooooooooooooooooooooooooooooooo', RestaurantsContext)
+//console.log('oooooooooooooooooooooooooooooooooooo', RestaurantsContext)
 
 
 const MainContain = styled(SafeAreaView)`

@@ -11,7 +11,7 @@ export const restaurantsRequest = (location = "37.7749295,-122.4194155") => {
     });
 };
 
-const responseTransformer = ({ results = [] }) => {
+export const restaurantsTransform = ({ results = [] }) => {
     const mappedResults = results.map((restaurant) => {
         return {
             ...restaurant,
@@ -22,7 +22,8 @@ const responseTransformer = ({ results = [] }) => {
     return camelize(mappedResults);
 }
 
-restaurantsRequest().then(responseTransformer)  /// === .then((response)=>responseTranformer(response))
-    .then(transformed => console.log(transformed))
-    .catch((err) => console.log(err))
+// restaurantsRequest().then((x) => { restaurantsTransform(x) })
+//     /// === .then((response)=>responseTranformer(response))
+//     // .then(transformed => console.log(transformed))
+//     .catch((err) => console.log(err))
 
