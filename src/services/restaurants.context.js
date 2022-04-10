@@ -10,7 +10,6 @@ export const RestaurantsContextProvider = (props) => {
     const [isError, setError] = useState(null);
 
     retrieveRestaurants = () => {
-        console.log('insdie retrieve use effect')
         setIsLoading(true);
         setTimeout(() => {
             restaurantsRequest()
@@ -27,11 +26,10 @@ export const RestaurantsContextProvider = (props) => {
                     setIsLoading(false);
                     setError(err);
                 })
-        })
+        }, 3000)
     }
 
     useEffect(() => {
-        console.log('inside of use effect')
         retrieveRestaurants()
     }, []);
     return (

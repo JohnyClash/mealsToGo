@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import { Searchbar } from "react-native-paper";
+import { Searchbar, ActivityIndicator, Colors } from "react-native-paper";
 import styled from 'styled-components';
 import { RestarauntInfo } from "../components/restaraunts.info.card";
+
 import {
     StyleSheet,
     Text,
@@ -26,27 +27,41 @@ const SearchContainer = styled.View`
     justifyContent: center
 `;
 
+const LoadingRest = styled(ActivityIndicator)`
+    flex:1
+    width:auto
+    justifyContent:center
+`
+
 
 
 export const RestarauntScreen = () => {
     const { restaurants, isLoading, error } = useContext(RestaurantsContext);
-    return (
-        <>
-            <SearchContainer>
-                <Searchbar />
-            </SearchContainer>
 
-            <FlatList
-                data={restaurants}
-                renderItem={({ item }) => {
-                    return (
-                        < RestarauntInfo restaurant={item} />
-                    )
-                }}
-                keyExtractor={(item) => item.names}
-            // contentContainerStyle={{ padding: 16 }}
-            />
-        </>
-    );
+    if (isLoading === true) {
+        return (
+            <LoadingRest animating={true} color={Colors.red800} size={"large"} />
+        )
+    } else {
+
+        return (
+            <>
+                <SearchContainer>
+                    <Searchbar />
+                </SearchContainer>
+
+                <FlatList
+                    data={restaurants}
+                    renderItem={({ item }) => {
+                        return (
+                            < RestarauntInfo restaurant={item} />
+                        )
+                    }}
+                    keyExtractor={(item) => item.names}
+                // contentContainerStyle={{ padding: 16 }}
+                />
+            </>
+        );
+    }
 };
 
