@@ -34,7 +34,6 @@ export const RestarauntInfo = ({ restaurant = {} }) => {
     } = restaurant;
 
     const ratingArray = Array.from(new Array(Math.ceil(rating)));
-    console.log(ratingArray);
 
     return (
         <RestCard>

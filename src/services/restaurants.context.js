@@ -14,11 +14,9 @@ export const RestaurantsContextProvider = (props) => {
         setTimeout(() => {
             restaurantsRequest()
                 .then((x) => {
-                    console.log('this is the length of x:', x)
                     return restaurantsTransform(x)
                 })
                 .then((results) => {
-                    console.log('this is results', results)
                     setIsLoading(false);
                     setRestaurants(results);
                 })

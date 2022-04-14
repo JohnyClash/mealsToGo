@@ -46,7 +46,6 @@ const stringMaker = (position, size) => {
 export const Spacer = ({ position, size, children }) => {
     const theme = useTheme();
     const variant = stringMaker(position, size);
-    console.log(variant)
     return <SpacerView variant={variant}>{children}</SpacerView>;
 }
 
