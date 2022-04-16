@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Searchbar, ActivityIndicator, Colors } from "react-native-paper";
 import styled from 'styled-components';
 import { RestarauntInfo } from "../components/restaraunts.info.card";
-
+import { Search } from '../components/search.components'
 import {
     StyleSheet,
     Text,
@@ -20,12 +20,7 @@ const MainContain = styled(SafeAreaView)`
     flex:1;
     marginTop : ${Platform.OS == 'android' ? StatusBar.currentHeight : 0}px;
 `;
-const SearchContainer = styled.View`
-    flexGrow: 0.04
-    backgroundColor: ${props => props.theme.colors.brand.secondary}
-    width: auto
-    justifyContent: center
-`;
+
 
 const LoadingRest = styled(ActivityIndicator)`
     flex:1
@@ -46,9 +41,7 @@ export const RestarauntScreen = () => {
 
         return (
             <>
-                <SearchContainer>
-                    <Searchbar />
-                </SearchContainer>
+                <Search />
 
                 <FlatList
                     data={restaurants}
